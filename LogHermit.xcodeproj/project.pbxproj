@@ -285,7 +285,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../Documents/GitHub/uniapp_custom_base/SDK/inc\"/**";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../uniapp_custom_base/SDK/inc\"/**";
 				INFOPLIST_FILE = LogHermit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -311,7 +311,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../Documents/GitHub/uniapp_custom_base/SDK/inc\"/**";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../uniapp_custom_base/SDK/inc\"/**";
 				INFOPLIST_FILE = LogHermit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

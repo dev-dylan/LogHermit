@@ -13,6 +13,8 @@
 #import "WXSDKInstance.h"
 #import "WXSDKEngine.h"
 #import "WXBridgeManager.h"
+#import "PDRCore.h"
+#import "WeexProtocol.h"
 
 @implementation LogHermit
 
@@ -68,13 +70,20 @@ void rebindFunction(void) {
         return;
     }
     WXPerformBlockOnBridgeThread(^{
-        id top = [[WXSDKEngine topInstance] instanceJavaScriptContext];
-        if ([top respondsToSelector:NSSelectorFromString(@"javaScriptContext")]) {
-            JSContext *context =(JSContext *)[top performSelector:NSSelectorFromString(@"javaScriptContext")];
-            NSString *js = @"function logMessage(message){ console.log(message)}";
-            [context evaluateScript:js];
-            JSValue *function = context[@"logMessage"];
-            [function callWithArguments:@[msg]];
+        PDRCore *core = [PDRCore Instance];
+        if ([core respondsToSelector:NSSelectorFromString(@"weexImport")]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            id<WeexProtocol> weexImport = [core performSelector:NSSelectorFromString(@"weexImport")];
+            id top = [[weexImport newWXSDKInstance] instanceJavaScriptContext];
+            if ([top respondsToSelector:NSSelectorFromString(@"javaScriptContext")]) {
+                JSContext *context =(JSContext *)[top performSelector:NSSelectorFromString(@"javaScriptContext")];
+                NSString *js = @"function logMessage(message){ console.log(message)}";
+                [context evaluateScript:js];
+                JSValue *function = context[@"logMessage"];
+                [function callWithArguments:@[msg]];
+            }
+#pragma clang diagnostic pop
         }
     });
 }
