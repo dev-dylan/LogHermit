@@ -63,6 +63,14 @@ void rebindFunction(void) {
 }
 
 +(void)logMessage:(NSString *)msg {
+    @try {
+        [self log:msg];
+    } @catch (NSException *exception) {
+        // 不进行 Log 输出
+    }
+}
+
++ (void)log:(NSString *)msg {
     if (!([msg containsString:@"Sensors"] || [msg containsString:@"SA"])) {
         return;
     }
@@ -87,4 +95,5 @@ void rebindFunction(void) {
         }
     });
 }
+
 @end
