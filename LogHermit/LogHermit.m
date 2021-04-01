@@ -101,4 +101,81 @@ WX_EXPORT_METHOD(@selector(testConsoleLog:))
     [LogHermit logMessage:logMessage];
 }
 
+#pragma mark - uni-app plugin lifeCycle
+-(void)onCreateUniPlugin {
+    NSLog(@"[uni-app LogHermit] initialize sucess !!!");
+}
+
+- (BOOL)application:(UIApplication * _Nullable)application continueUserActivity:(NSUserActivity * _Nullable)userActivity restorationHandler:(void (^ _Nullable)(NSArray * _Nullable))restorationHandler {
+    return YES;
+}
+
+- (void)application:(UIApplication * _Nullable)application didFailToRegisterForRemoteNotificationsWithError:(NSError * _Nullable)err {
+
+}
+
+- (BOOL)application:(UIApplication * _Nullable)application didFinishLaunchingWithOptions:(NSDictionary * _Nullable)launchOptions {
+    return YES;
+}
+
+- (void)application:(UIApplication * _Nullable)application didReceiveLocalNotification:(UILocalNotification * _Nullable)notification {
+
+}
+
+- (void)application:(UIApplication * _Nullable)application didReceiveRemoteNotification:(NSDictionary * _Nullable)userInfo {
+
+}
+
+- (void)application:(UIApplication * _Nullable)application didReceiveRemoteNotification:(NSDictionary * _Nullable)userInfo fetchCompletionHandler:(void (^ _Nullable)(UIBackgroundFetchResult))completionHandler {
+
+}
+
+- (void)application:(UIApplication * _Nullable)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData * _Nullable)deviceToken {
+
+}
+
+- (void)application:(UIApplication * _Nullable)application handleEventsForBackgroundURLSession:(NSString * _Nonnull)identifier completionHandler:(void (^ _Nullable)(void))completionHandler {
+
+}
+
+- (BOOL)application:(UIApplication * _Nullable)application handleOpenURL:(NSURL * _Nullable)url {
+    return NO;
+}
+
+- (BOOL)application:(UIApplication * _Nullable)app openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> * _Nullable)options {
+    return NO;
+}
+
+- (BOOL)application:(UIApplication * _Nullable)application openURL:(NSURL * _Nullable)url sourceApplication:(NSString * _Nullable)sourceApplication annotation:(id _Nonnull)annotation {
+    return NO;
+}
+
+- (void)application:(UIApplication * _Nullable)application performActionForShortcutItem:(UIApplicationShortcutItem * _Nullable)shortcutItem completionHandler:(void (^ _Nullable)(BOOL))completionHandler {
+
+}
+
+- (void)applicationDidBecomeActive:(UIApplication * _Nullable)application {
+
+}
+
+- (void)applicationDidEnterBackground:(UIApplication * _Nullable)application {
+
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication * _Nullable)application {
+
+}
+
+- (void)applicationWillEnterForeground:(UIApplication * _Nullable)application {
+
+}
+
+- (void)applicationWillResignActive:(UIApplication * _Nullable)application {
+
+}
+
+- (void)applicationWillTerminate:(UIApplication * _Nullable)application {
+
+}
+
 @end
