@@ -71,7 +71,7 @@ void rebindFunction(void) {
 }
 
 + (void)log:(NSString *)msg {
-    if (!([msg containsString:@"Sensors"] || [msg containsString:@"SA"])) {
+    if (!([msg containsString:@"Sensors"] || ![msg containsString:@"SA"])) {
         return;
     }
     if ([msg containsString:@"<Weex>"]) {
@@ -94,6 +94,11 @@ void rebindFunction(void) {
 #pragma clang diagnostic pop
         }
     });
+}
+
+WX_EXPORT_METHOD(@selector(testConsoleLog:))
+- (void)testConsoleLog:(NSString *)logMessage {
+    [LogHermit logMessage:logMessage];
 }
 
 @end

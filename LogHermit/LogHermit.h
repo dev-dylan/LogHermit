@@ -6,7 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <WeexSDK.h>
 
-@interface LogHermit : NSObject
+@interface LogHermit : NSObject <WXModuleProtocol>
 
 @end
